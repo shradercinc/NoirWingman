@@ -1,0 +1,2 @@
+Name	Prompt	Reaction	Expression	Conditional Var	Conditional Operator	Conditional Value	Effect Var	Effect Operator	Effect Value	Position	Speaker	Patience Req	Patience Mod
+End Dialogue 1	N/A	"Welp I guess I was the only option but we jump here once you've made your decision | So, do you two wanna go on a date? | A metaphorical digital date between demo characters? Sure | yea I'm down!"	Neutral|Neutral|Happy|Happy	N/A	N/A	0	N/A	N/A	0	0|3|1|3	Janet | Detective | Leana | Janet	0	0

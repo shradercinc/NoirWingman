@@ -1,0 +1,7 @@
+Name	Prompt	Reaction	Expression	Conditional Var	Conditional Operator	Conditional Value	Effect Var	Effect Operator	Effect Value	Position	Speaker	Patience Req	Patience Mod
+Dialogue 1	So how does this dialogue system work?	It's great! Make a choice and the text pops up here. | It's divided by lines and linked with a reaction. | Wow!	Neutral|Neutral|Neutral	Null	Null	0	Null	Null	0	0|0|0	Janet|Janet|Janet	1	-1
+Dialogue 2	And there are reactions?	"Yup! | The visual reactions are included and linked in a list. | Like if I wanna look sad I have to prompt the 1 ""reaction"", Like this!"	Neutral|Neutral|Sad	Null	Null	0	testVar	add	1	3|3|3	Janet|Janet|Janet	1	-1
+Dialogue 3	When did this get here	Just now! | Some conversations change what you can say in the future.	Happy|Neutral	testVar	egt	1	testVar	add	1	1|3	Janet|Janet	1	-1
+Dialogue 4	Can I talk too?	"Absolutely, try something now. | Hey there. | There's the grizzled detective voice!"	Neutral|Neutral|Happy	testVar	egt	1	testVar	add	1	0|0|0	Janet|Detective|Janet	1	-1
+Dialogue 5	Oh it looks like I can't read this	How did you read this?	Angry	testVar	egt	3	Null	Null	0	0	Janet	10	-1
+Dialogue 6	Are you running out of patience?	"Yea, you can't talk with people forever. | Over time, depending on what you ask, their patience will go down. | It's your job to navigate what's important to the conversation. | Though, asking the same question twice doesn't cost patience."	Sad|Neutral|Neutral|Happy	testVar	egt	3	Null	Null	0	0|0|0|1	Janet|Janet|Janet|Janet	0	0

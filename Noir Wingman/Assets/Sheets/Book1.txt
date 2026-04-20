@@ -1,0 +1,3 @@
+Tags	Dialog
+Test1	First line | This follows
+Test2	Second line | So does this

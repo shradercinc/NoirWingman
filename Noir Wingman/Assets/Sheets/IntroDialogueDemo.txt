@@ -1,0 +1,2 @@
+Name	Prompt	Reaction	Expression	Conditional Var	Conditional Operator	Conditional Value	Effect Var	Effect Operator	Effect Value	Position	Speaker	Patience Req	Patience Mod
+Intro	N/A	" Welcome to the demo. This dialogue will pop up whenever a level starts | What do I do now? | Well, there aren't a lot of people to talk to but you could click on Janet! |*I look around the room, it's a lonely afair with a single woman standing in the midst of a blank void"	Neutral|Neutral|Happy|Neutral	Null	Null	0	Null	Null	0	0|3|0|3	Leana|Detective|Leana|Detective	0	0
