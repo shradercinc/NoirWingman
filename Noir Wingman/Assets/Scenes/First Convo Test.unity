@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 234087794}
   - component: {fileID: 234087793}
   - component: {fileID: 234087792}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ExpressionObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 253921106}
   - component: {fileID: 253921105}
   - component: {fileID: 253921104}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Prompt Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,8 +610,6 @@ GameObject:
   - component: {fileID: 349886072}
   - component: {fileID: 349886071}
   - component: {fileID: 349886070}
-  - component: {fileID: 349886075}
-  - component: {fileID: 349886074}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -709,72 +707,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &349886074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349886069}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 243a781cad112c75d0008dfa8d76c639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: daf9781cad112c75d0008dfa8d76c639, type: 3}
-  textureRamp: {fileID: 2800000, guid: e9a9781cad112c75d0008dfa8d76c639, type: 3}
-  rampOffset: -0.1
---- !u!20 &349886075
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349886069}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!1 &365722684
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +718,7 @@ GameObject:
   - component: {fileID: 365722685}
   - component: {fileID: 365722687}
   - component: {fileID: 365722686}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Protagonist Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1087,7 +1019,7 @@ GameObject:
   - component: {fileID: 461293378}
   - component: {fileID: 461293380}
   - component: {fileID: 461293379}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1580,7 +1512,7 @@ GameObject:
   - component: {fileID: 606010122}
   - component: {fileID: 606010120}
   - component: {fileID: 606010123}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IntroDialogueController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1945,7 +1877,7 @@ GameObject:
   - component: {fileID: 652708869}
   - component: {fileID: 652708871}
   - component: {fileID: 652708870}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EndDialogueMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2210,7 +2142,7 @@ GameObject:
   - component: {fileID: 727248497}
   - component: {fileID: 727248496}
   - component: {fileID: 727248495}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ExpressionObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2876,7 +2808,7 @@ GameObject:
   - component: {fileID: 844356195}
   - component: {fileID: 844356197}
   - component: {fileID: 844356196}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Protagonist Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3380,7 +3312,7 @@ GameObject:
   - component: {fileID: 990257222}
   - component: {fileID: 990257221}
   - component: {fileID: 990257220}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3845,7 +3777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1169553157}
   - component: {fileID: 1169553158}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3907,7 +3839,7 @@ GameObject:
   - component: {fileID: 1170210758}
   - component: {fileID: 1170210757}
   - component: {fileID: 1170210759}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4172,7 +4104,7 @@ GameObject:
   - component: {fileID: 1294456183}
   - component: {fileID: 1294456182}
   - component: {fileID: 1294456184}
-  m_Layer: 1
+  m_Layer: 5
   m_Name: Voting Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4541,7 +4473,7 @@ GameObject:
   - component: {fileID: 1382237012}
   - component: {fileID: 1382237010}
   - component: {fileID: 1382237011}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FadeExpressionObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4673,7 +4605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417188418}
   - component: {fileID: 1417188419}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4726,7 +4658,7 @@ GameObject:
   - component: {fileID: 1428791115}
   - component: {fileID: 1428791116}
   - component: {fileID: 1428791117}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DialogueMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4854,7 +4786,7 @@ MonoBehaviour:
   dialogueSpeaker: {fileID: 1430117228}
   SpeakerObj: {fileID: 2098107772}
   protagonistOverlay: {fileID: 365722684}
-  NoirOverlay: {fileID: 349886074}
+  NoirOverlay: {fileID: 0}
   standardPositions:
   - {x: -680, y: 40, z: 0}
   - {x: -245, y: 40, z: 0}
@@ -5724,6 +5656,8 @@ GameObject:
   - component: {fileID: 1896244082}
   - component: {fileID: 1896244081}
   - component: {fileID: 1896244080}
+  - component: {fileID: 1896244083}
+  - component: {fileID: 1896244084}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5805,6 +5739,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1896244083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896244079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1896244082}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!114 &1896244084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896244079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 566aa8f3315b4df4f91594fe6c9f1259, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &1920330021
 GameObject:
   m_ObjectHideFlags: 0
@@ -6602,7 +6613,7 @@ GameObject:
   - component: {fileID: 2087195549}
   - component: {fileID: 2087195550}
   - component: {fileID: 2087195551}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PromptMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}

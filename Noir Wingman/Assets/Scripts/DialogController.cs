@@ -61,7 +61,7 @@ public class DialogController : MonoBehaviour
 
     public virtual void EndConvo()
     {
-        NoirOverlay.enabled = false;
+        //NoirOverlay.enabled = false;
         patronMenu.SetActive(true);
         if (!convoToPrint.read)
         {
@@ -125,13 +125,12 @@ public class DialogController : MonoBehaviour
         if (newText.StartsWith('*'))
         {
             newText = newText.Trim('*');
-            NoirOverlay.enabled = true;
+            //NoirOverlay.enabled = true;
             //protagonistOverlay.SetActive(true);
-            
             SpeakerObj.SetActive(false);
         } else
         {
-            NoirOverlay.enabled = false;
+            //NoirOverlay.enabled = false;
             //protagonistOverlay.SetActive(false);
             SpeakerObj.SetActive(true);
         }
