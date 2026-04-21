@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.UI;
 using Unity.PlasticSCM.Editor.WebApi;
+using UnityEngine.Rendering.PostProcessing;
 
 public class DialogController : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class DialogController : MonoBehaviour
     [SerializeField] TMP_Text dialogueSpeaker;
     [SerializeField] GameObject SpeakerObj;
     [SerializeField] GameObject protagonistOverlay;
-    [SerializeField] GrayscaleEffect NoirOverlay;
+    [SerializeField] PostProcessVolume NoirOverlay;
     [SerializeField] Vector3[] standardPositions;
 
     [SerializeField] GameObject EndReportMenu;
@@ -61,7 +62,7 @@ public class DialogController : MonoBehaviour
 
     public virtual void EndConvo()
     {
-        //NoirOverlay.enabled = false;
+        NoirOverlay.enabled = false;
         patronMenu.SetActive(true);
         if (!convoToPrint.read)
         {
@@ -87,7 +88,8 @@ public class DialogController : MonoBehaviour
                         break;
                 }
             }
-            rootConversation.patience += convoToPrint.patienceMod;
+            rootConversation.patience -= convoToPrint.patienceReq;
+
             for (int i = 0; i < rootConversation.fullConversation.Count; i++)
             {
                 if (convoToPrint.dialogueName == rootConversation.fullConversation[i].dialogueName)
@@ -114,6 +116,7 @@ public class DialogController : MonoBehaviour
         {
             promptMenu.SetActive(true);
             promptManager.instance.LoadNewConvo(rootConversation.fullConversation);
+            promptManager.instance.patienceHolder.text = rootConversation.patience.ToString();
             patronMenu.SetActive(false);
             dialogueMenu.SetActive(false);
         }
@@ -125,12 +128,12 @@ public class DialogController : MonoBehaviour
         if (newText.StartsWith('*'))
         {
             newText = newText.Trim('*');
-            //NoirOverlay.enabled = true;
+            NoirOverlay.enabled = true;
             //protagonistOverlay.SetActive(true);
             SpeakerObj.SetActive(false);
         } else
         {
-            //NoirOverlay.enabled = false;
+            NoirOverlay.enabled = false;
             //protagonistOverlay.SetActive(false);
             SpeakerObj.SetActive(true);
         }

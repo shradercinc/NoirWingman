@@ -223,6 +223,7 @@ public class selectPerson : ButtonMaster
             promptMenu.SetActive(true);
             promptManager.instance.resetContents(false);
             promptManager.instance.currentPerson = this;
+            promptManager.instance.patienceHolder.text = patience.ToString();
             promptManager.instance.LoadNewConvo(fullConversation);
             patronMenu.SetActive(false);
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class promptManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class promptManager : MonoBehaviour
     public selectPerson currentPerson;
     List<GameObject> listOfPrompts = new List<GameObject>();
     [SerializeField] GameObject promptHolder;
+    [SerializeField] public TMP_Text patienceHolder;
 
     private void Awake()
     {
