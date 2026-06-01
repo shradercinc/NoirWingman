@@ -58,10 +58,12 @@ public class selectPerson : ButtonMaster
 {
     [SerializeField] TextAsset MyConversationTSV;
     [SerializeField] TextAsset MyEndConversationsTSV;
+    [SerializeField] TextAsset MyIntroConversationTSV;
     string[,] preparsed;
     public Dictionary<string, int> dialogVars = new();
     public List<DialogueContainer> fullConversation = new();
     public List<DialogueContainer> endConversation = new();
+    public List <DialogueContainer> introConversation = new();
     [SerializeField] GameObject promptMenu;
     [SerializeField] GameObject patronMenu;
     // In order, expressions are always Neutral, Happy, Sad, Angry, Laughing (to be ammended or altered)
@@ -77,21 +79,21 @@ public class selectPerson : ButtonMaster
     private float throbT = 0;
     bool throbI = false;
 
+    bool POIIntroComplete = false;
+
     [SerializeField] public string TempEndString;
 
     public override void Start()
     {
         fullConversation = convertTSVtoDialogue(MyConversationTSV);
-        if (MyEndConversationsTSV != null)
-        {
-            endConversation = convertTSVtoDialogue(MyEndConversationsTSV);
-        }
+        if (MyEndConversationsTSV != null) endConversation = convertTSVtoDialogue(MyEndConversationsTSV);
+        if (MyIntroConversationTSV != null) introConversation = convertTSVtoDialogue(MyIntroConversationTSV);
 
         instantiated = true;
 
     }
 
-    List<DialogueContainer> convertTSVtoDialogue(TextAsset newTSV)
+    public List<DialogueContainer> convertTSVtoDialogue(TextAsset newTSV)
     {
         preparsed = TSVReader.instance.readTSV(newTSV);
         List<DialogueContainer> TempDiaList = new List<DialogueContainer>();
@@ -224,7 +226,23 @@ public class selectPerson : ButtonMaster
             promptManager.instance.resetContents(false);
             promptManager.instance.currentPerson = this;
             promptManager.instance.patienceHolder.text = patience.ToString();
-            promptManager.instance.LoadNewConvo(fullConversation);
+     
+
+
+            if (!POIIntroComplete)
+            {
+                promptMenu.SetActive(false);
+                DialogController Dia = DialogController.instance;
+                Dia.gameObject.SetActive(true);
+                Dia.rootConversation = this;
+                Dia.convoToPrint = introConversation[0];
+                Dia.startNewConvo("");
+                POIIntroComplete = true;
+            }
+            else
+            {
+                promptManager.instance.LoadNewConvo(fullConversation);
+            }
             patronMenu.SetActive(false);
         }
         else
@@ -235,7 +253,7 @@ public class selectPerson : ButtonMaster
             Dia.gameObject.SetActive(true);
             Dia.rootConversation = this;
             Dia.convoToPrint = endConversation[0];
-            Dia.startNewConvo(false, true);
+            Dia.startNewConvo("Outro");
             patronMenu.SetActive(false);
 
 

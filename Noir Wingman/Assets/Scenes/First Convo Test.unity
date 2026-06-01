@@ -547,6 +547,7 @@ MonoBehaviour:
   hoverMod: 1.05
   MyConversationTSV: {fileID: 4900000, guid: 3840e9facc9189b48b33d01e14e1ce63, type: 3}
   MyEndConversationsTSV: {fileID: 4900000, guid: dffc6f076f057d345b46f3bc8f9fa1ca, type: 3}
+  MyIntroConversationTSV: {fileID: 4900000, guid: 4ce0a2c2870de4a439d7ae9bb0040826, type: 3}
   promptMenu: {fileID: 2087195548}
   patronMenu: {fileID: 723553320}
   Expressions:
@@ -1511,24 +1512,35 @@ MonoBehaviour:
       Value:
         _serializedList:
         - Key: Happy
-          Value: {fileID: 1929672879, guid: 7be639baa57806e4e9711fa270188c0f, type: 3}
+          Value: {fileID: -834568741, guid: 28f18a33187e8b944b3debfcc2686f81, type: 3}
         - Key: Neutral
-          Value: {fileID: 1603899574, guid: 7be639baa57806e4e9711fa270188c0f, type: 3}
+          Value: {fileID: 1300971208, guid: 28f18a33187e8b944b3debfcc2686f81, type: 3}
         - Key: Angry
-          Value: {fileID: 910172991, guid: 7be639baa57806e4e9711fa270188c0f, type: 3}
+          Value: {fileID: -681550239, guid: 28f18a33187e8b944b3debfcc2686f81, type: 3}
         - Key: Sad
-          Value: {fileID: 536697393, guid: 7be639baa57806e4e9711fa270188c0f, type: 3}
+          Value: {fileID: 1711751240, guid: 28f18a33187e8b944b3debfcc2686f81, type: 3}
     - Key: Janet
       Value:
         _serializedList:
         - Key: Happy
           Value: {fileID: 234046805, guid: 866e365ddbafd3d4ea2866a4c428341e, type: 3}
+        - Key: Sad
+          Value: {fileID: 653951072, guid: 866e365ddbafd3d4ea2866a4c428341e, type: 3}
         - Key: Neutral
           Value: {fileID: 1786770352, guid: 866e365ddbafd3d4ea2866a4c428341e, type: 3}
         - Key: Angry
           Value: {fileID: 91269031, guid: 866e365ddbafd3d4ea2866a4c428341e, type: 3}
+    - Key: Olivia Meadows
+      Value:
+        _serializedList:
+        - Key: Happy
+          Value: {fileID: 234046805, guid: 866e365ddbafd3d4ea2866a4c428341e, type: 3}
         - Key: Sad
           Value: {fileID: 653951072, guid: 866e365ddbafd3d4ea2866a4c428341e, type: 3}
+        - Key: Neutral
+          Value: {fileID: 1786770352, guid: 866e365ddbafd3d4ea2866a4c428341e, type: 3}
+        - Key: Angry
+          Value: {fileID: 91269031, guid: 866e365ddbafd3d4ea2866a4c428341e, type: 3}
 --- !u!1 &596933350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,6 +1694,7 @@ MonoBehaviour:
   hoverMod: 1.05
   MyConversationTSV: {fileID: 4900000, guid: 8318b6e1f2967304997e141feeabd86c, type: 3}
   MyEndConversationsTSV: {fileID: 0}
+  MyIntroConversationTSV: {fileID: 0}
   promptMenu: {fileID: 2087195548}
   patronMenu: {fileID: 723553320}
   Expressions:
@@ -5623,6 +5636,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675825357}
   m_CullTransparentMesh: 1
+--- !u!114 &1725440713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2162902436470355224, guid: 87184e967208f0242adc1aa688adf349, type: 3}
+  m_PrefabInstance: {fileID: 11182997}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746206630
 GameObject:
   m_ObjectHideFlags: 0
@@ -6631,10 +6655,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sample Conversation choice text
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee9f27fdb3df7ac418870e4a61841c70, type: 2}
+  m_sharedMaterial: {fileID: -1963213264788057560, guid: ee9f27fdb3df7ac418870e4a61841c70, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6776,6 +6800,7 @@ MonoBehaviour:
   promptMargin: {x: 0, y: -150, z: 0}
   currentPerson: {fileID: 0}
   promptHolder: {fileID: 1169553156}
+  patienceHolder: {fileID: 1725440713}
 --- !u!1 &2090126688
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class EndDialogController : DialogController
        // endInstance = this;
     }
 
-    public override void startNewConvo(bool intro, bool outro)
+    public override void startNewConvo(string condition)
     {
         //child may be edited with new intro dialogue controller child
         //currentExpressions = rootConversation.Expressions;

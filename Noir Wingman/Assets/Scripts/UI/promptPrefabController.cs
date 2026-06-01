@@ -52,7 +52,7 @@ public class promptPrefabController : ButtonMaster
             promptManager.instance.dialogueMenu.SetActive(true);
             DialogController.instance.rootConversation = conversationRoot;
             DialogController.instance.convoToPrint = myContainer;
-            DialogController.instance.startNewConvo(false,false);
+            DialogController.instance.startNewConvo("");
             promptManager.instance.resetContents(true);
         }
 

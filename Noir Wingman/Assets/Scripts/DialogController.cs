@@ -15,8 +15,7 @@ public class DialogController : MonoBehaviour
     public TMP_Text dialogueText;
     protected int progress = 0;
     protected bool inUse = false;
-    bool usingIntro;
-    bool usingOutro;
+    string dialogueCondition;
     [SerializeField] protected GameObject patronMenu;
     [SerializeField] protected GameObject dialogueMenu;
     [SerializeField] protected GameObject promptMenu;
@@ -43,15 +42,12 @@ public class DialogController : MonoBehaviour
         instance = this;
     }
      
-    public virtual void startNewConvo(bool intro, bool outro)
+    public virtual void startNewConvo(string condition)
     {
-        if(intro) usingIntro = true;
-        else usingIntro = false;
+        dialogueCondition = condition;
 
-        if (outro) usingOutro = true;
-        else usingOutro = false;
 
-            patronMenu.SetActive(true);
+        patronMenu.SetActive(true);
 
         patronMenu.SetActive(false);
         progress = 0;
@@ -99,26 +95,28 @@ public class DialogController : MonoBehaviour
                 }
             }
         }
-        if (usingIntro)
+        switch (dialogueCondition)
         {
-            dialogueMenu.SetActive(false);
-        }
-        else if (usingOutro)
-        {
-            EndReportMenu.SetActive(true);
-            ReferenceKeeper endRef = EndReportMenu.GetComponent<ReferenceKeeper>();
-            endRef.nameObj.text = "You picked " + rootConversation.gameObject.name + " For " + endRef.levelFriend;
-            endRef.summaryObj.text = rootConversation.TempEndString;
-            dialogueMenu.SetActive(false);
-            patronMenu.SetActive(false);
-        }
-        else
-        {
-            promptMenu.SetActive(true);
-            promptManager.instance.LoadNewConvo(rootConversation.fullConversation);
-            promptManager.instance.patienceHolder.text = rootConversation.patience.ToString();
-            patronMenu.SetActive(false);
-            dialogueMenu.SetActive(false);
+            case "Intro":
+                dialogueMenu.SetActive(false);
+                break;
+            case "Outro":
+                EndReportMenu.SetActive(true);
+                ReferenceKeeper endRef = EndReportMenu.GetComponent<ReferenceKeeper>();
+                endRef.nameObj.text = "You picked " + rootConversation.gameObject.name + " For " + endRef.levelFriend;
+                endRef.summaryObj.text = rootConversation.TempEndString;
+                dialogueMenu.SetActive(false);
+                patronMenu.SetActive(false);
+                break;
+            case "POIIntro":
+                break;
+            case "":
+                promptMenu.SetActive(true);
+                promptManager.instance.LoadNewConvo(rootConversation.fullConversation);
+                promptManager.instance.patienceHolder.text = rootConversation.patience.ToString();
+                patronMenu.SetActive(false);
+                dialogueMenu.SetActive(false);
+                break;
         }
     }
     

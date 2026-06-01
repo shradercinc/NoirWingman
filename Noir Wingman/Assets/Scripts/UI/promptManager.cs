@@ -67,8 +67,8 @@ public class promptManager : MonoBehaviour
             }
             else
             {
-                //print("No Condition");
                 CreateChoice(newConvo[i]);
+                
             }
         }
         print("Conversation Loaded!");

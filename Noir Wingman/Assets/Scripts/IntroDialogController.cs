@@ -21,7 +21,7 @@ public class IntroDialogController : MonoBehaviour
         DialogController.instance.gameObject.SetActive(true);
         DialogController.instance.rootConversation = myTextHolder;
         DialogController.instance.convoToPrint = myTextHolder.fullConversation[0];
-        DialogController.instance.startNewConvo(true,false);
+        DialogController.instance.startNewConvo("Intro");
     }
 
     // Update is called once per frame
