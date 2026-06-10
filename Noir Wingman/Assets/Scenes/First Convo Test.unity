@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 244739104}
   - component: {fileID: 244739105}
   m_Layer: 5
-  m_Name: Jannet
+  m_Name: Olivia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -545,7 +545,7 @@ MonoBehaviour:
   disabledOnStart: 0
   backgroundRect: {fileID: 244739102}
   hoverMod: 1.05
-  MyConversationTSV: {fileID: 4900000, guid: 3840e9facc9189b48b33d01e14e1ce63, type: 3}
+  MyConversationTSV: {fileID: 4900000, guid: b80ae560d728a784fa857e4b23708c65, type: 3}
   MyEndConversationsTSV: {fileID: 4900000, guid: dffc6f076f057d345b46f3bc8f9fa1ca, type: 3}
   MyIntroConversationTSV: {fileID: 4900000, guid: 4ce0a2c2870de4a439d7ae9bb0040826, type: 3}
   promptMenu: {fileID: 2087195548}
@@ -6067,7 +6067,7 @@ GameObject:
   - component: {fileID: 1936948446}
   - component: {fileID: 1936948445}
   m_Layer: 5
-  m_Name: Jannet Option
+  m_Name: Olivia Option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

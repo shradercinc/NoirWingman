@@ -18,13 +18,13 @@ public class promptPrefabController : ButtonMaster
     public override void Start()
     {
         base.Start();
-        myText.text = myContainer.prompt;
+        myText.text = myContainer.prompt.Trim('"');
         patienceValue.text = myContainer.patienceMod.ToString();
         if(myContainer.read)
         {
             hasReadOverlay.SetActive(true);
         }
-        if (conversationRoot.patience < myContainer.patienceReq)
+        if (conversationRoot.patience < myContainer.patienceMod)
         {
             hasReadOverlay.SetActive(true);
             boxOutline.effectColor = Color.red;
