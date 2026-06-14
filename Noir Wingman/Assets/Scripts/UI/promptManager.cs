@@ -28,41 +28,43 @@ public class promptManager : MonoBehaviour
         print("Loading new Convo...");
         for (int i = 0; i < newConvo.Count; i++) 
         {
-            if (newConvo[i].conditionVar != "Null")
+            if (newConvo[i].conditionVar[0] != "Null")
             {
-                //print("Condition Found");
-                switch (newConvo[i].conditionOpr)
+                for (int j = 0; j < newConvo[i].conditionVar.Length; j++)
                 {
-                    case "eq":
-                        if (currentPerson.dialogVars[newConvo[i].conditionVar] == newConvo[i].conditionVal)
-                        {
-                            CreateChoice(newConvo[i]);
-                        }
-                        break;
-                    case "gt":
-                        if (currentPerson.dialogVars[newConvo[i].conditionVar] > newConvo[i].conditionVal)
-                        {
-                            CreateChoice(newConvo[i]);
-                        }
-                        break;
-                    case "egt":
-                        if (currentPerson.dialogVars[newConvo[i].conditionVar] >= newConvo[i].conditionVal)
-                        {
-                            CreateChoice(newConvo[i]);
-                        }
-                        break;
-                    case "lt":
-                        if (currentPerson.dialogVars[newConvo[i].conditionVar] < newConvo[i].conditionVal)
-                        {
-                            CreateChoice(newConvo[i]);
-                        }
-                        break;
-                    case "elt":
-                        if (currentPerson.dialogVars[newConvo[i].conditionVar] < newConvo[i].conditionVal)
-                        {
-                            CreateChoice(newConvo[i]);
-                        }
-                        break;
+                    switch (newConvo[i].conditionOpr[j])
+                    {
+                        case "eq":
+                            if (currentPerson.dialogVars[newConvo[i].conditionVar[i]] == newConvo[i].conditionVal[i])
+                            {
+                                CreateChoice(newConvo[i]);
+                            }
+                            break;
+                        case "gt":
+                            if (currentPerson.dialogVars[newConvo[i].conditionVar[i]] > newConvo[i].conditionVal[i])
+                            {
+                                CreateChoice(newConvo[i]);
+                            }
+                            break;
+                        case "egt":
+                            if (currentPerson.dialogVars[newConvo[i].conditionVar[i]] >= newConvo[i].conditionVal[i])
+                            {
+                                CreateChoice(newConvo[i]);
+                            }
+                            break;
+                        case "lt":
+                            if (currentPerson.dialogVars[newConvo[i].conditionVar[i]] < newConvo[i].conditionVal[i])
+                            {
+                                CreateChoice(newConvo[i]);
+                            }
+                            break;
+                        case "elt":
+                            if (currentPerson.dialogVars[newConvo[i].conditionVar[i]] < newConvo[i].conditionVal[i])
+                            {
+                                CreateChoice(newConvo[i]);
+                            }
+                            break;
+                    }
                 }
             }
             else

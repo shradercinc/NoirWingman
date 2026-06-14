@@ -62,26 +62,25 @@ public class DialogController : MonoBehaviour
         patronMenu.SetActive(true);
         if (!convoToPrint.read)
         {
-            if (convoToPrint.effectVar != "Null")
+            if (convoToPrint.effectVar[0] != "Null")
             {
-                print(convoToPrint.effectVar + " " + convoToPrint.effectOpr + " " + convoToPrint.effectVal);
-
-                switch (convoToPrint.effectOpr)
+                for (int i = 0; i < convoToPrint.effectVar.Length; i++)
                 {
-                    case "add":
-                        print(rootConversation.dialogVars[convoToPrint.effectVar]);
-                        rootConversation.dialogVars[convoToPrint.effectVar] += convoToPrint.effectVal;
-                        print(rootConversation.dialogVars[convoToPrint.effectVar]);
-                        break;
-                    case "subtract":
-                        rootConversation.dialogVars[convoToPrint.effectVar] -= convoToPrint.effectVal;
-                        break;
-                    case "multiply":
-                        rootConversation.dialogVars[convoToPrint.effectVar] *= convoToPrint.effectVal;
-                        break;
-                    case "divide":
-                        rootConversation.dialogVars[convoToPrint.effectVar] /= convoToPrint.effectVal;
-                        break;
+                    switch (convoToPrint.effectOpr[i])
+                    {
+                        case "add":
+                            rootConversation.dialogVars[convoToPrint.effectVar[i]] += convoToPrint.effectVal[i];
+                            break;
+                        case "subtract":
+                            rootConversation.dialogVars[convoToPrint.effectVar[i]] -= convoToPrint.effectVal[i];
+                            break;
+                        case "multiply":
+                            rootConversation.dialogVars[convoToPrint.effectVar[i]] *= convoToPrint.effectVal[i];
+                            break;
+                        case "divide":
+                            rootConversation.dialogVars[convoToPrint.effectVar[i]] /= convoToPrint.effectVal[i];
+                            break;
+                    }
                 }
             }
             rootConversation.patience -= convoToPrint.patienceReq;

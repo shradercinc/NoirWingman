@@ -20,7 +20,6 @@ public class DossierController : MonoBehaviour
     [SerializeField] AnimationCurve open;
     [SerializeField] float pullUpTimerMax = 0.2f;
     [SerializeField] float openTimerMax = 0.4f;
-    private bool inObservation = false;
     private bool moving = false;
 
 

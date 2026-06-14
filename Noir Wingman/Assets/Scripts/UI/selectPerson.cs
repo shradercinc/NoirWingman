@@ -14,20 +14,23 @@ public struct DialogueContainer
     public string prompt;
     public string[] reaction;
     public string[] expression;
-    public string conditionVar;
-    public string conditionOpr;
-    public int conditionVal;
-    public string effectVar;
-    public string effectOpr;
-    public int effectVal;
-    public bool read;
+
+    public string[] conditionVar;
+    public string[] conditionOpr;
+    public int[] conditionVal;
+    public string[] effectVar;
+    public string[] effectOpr;
+    public int[] effectVal;
+
     public int[] position;
     public string[] speaker;
     public int patienceReq;
     public int patienceMod;
 
+    public bool read;
 
-    public void DialogInstantiation(string name, string NPrompt, string[] NReaction, string[] Nexpression, string NConditionVar, string NConditionOpr, int NConditionVal, string NEffectVar, string NEffectOpr, int NEffectVal, int[] Nposition, string[] Nspeaker, int NpatienceReq, int NpatienceMod)
+
+    public void DialogInstantiation(string name, string NPrompt, string[] NReaction, string[] Nexpression, string[] NConditionVar, string[] NConditionOpr, int[] NConditionVal, string[] NEffectVar, string[] NEffectOpr, int[] NEffectVal, int[] Nposition, string[] Nspeaker, int NpatienceReq, int NpatienceMod)
     {
         read = false;
 
@@ -102,12 +105,12 @@ public class selectPerson : ButtonMaster
         string tprompt;
         string[] treaction;
         string[] texpression;
-        string tcondVar;
-        string tcondOpr;
-        int tcondVal;
-        string teffVar;
-        string teffOpr;
-        int teffVal;
+        string[] tcondVar;
+        string[] tcondOpr;
+        int[] tcondVal;
+        string[] teffVar;
+        string[] teffOpr;
+        int[] teffVal;
         string[] tspeaker;
         int[] tposition;
         int tpatienceReq;
@@ -115,6 +118,8 @@ public class selectPerson : ButtonMaster
 
         for (int i = 0; i < preparsed.GetLength(0) - 2; i++)
         {
+            string[] prep;
+
             tname = preparsed[i, 0].Trim(' ');
 
             tprompt = preparsed[i, 1].Trim(' ');
@@ -125,21 +130,36 @@ public class selectPerson : ButtonMaster
             texpression = preparsed[i, 3].Split("|");
             for (int s = 0; s < texpression.Length; s++) texpression[s] = texpression[s].Trim('"', ' '); 
 
-            tcondVar = preparsed[i, 4].Trim(' ');
-            if (!dialogVars.ContainsKey(tcondVar) && tcondVar != "Null") dialogVars.Add(tcondVar, 0); 
 
-            tcondOpr = preparsed[i, 5].Trim(' ');
+            tcondVar = preparsed[i, 4].Split("|");
+            for (int s = 0; s < tcondVar.Length; s++)
+            {
+                tcondVar[s] = tcondVar[s].Trim('"', ' ');
+                if (!dialogVars.ContainsKey(tcondVar[s]) && tcondVar[s] != "Null") dialogVars.Add(tcondVar[s], 0);
+            }
 
-            tcondVal = int.Parse(preparsed[i, 6]);
+            tcondOpr = preparsed[i, 5].Split("|");
+            for (int s = 0; s < tcondOpr.Length; s++) tcondOpr[s] = tcondOpr[s].Trim('"', ' ');
 
-            teffVar = preparsed[i, 7].Trim(' ');
-            if (!dialogVars.ContainsKey(tcondVar) && teffVar != "Null") dialogVars.Add(tcondVar, 0);
+            prep = preparsed[i, 6].Split("|");
+            tcondVal = new int[prep.Length];
+            for (int s = 0; s < prep.Length; s++) tcondVal[s] = int.Parse(prep[s]);
 
-            teffOpr = preparsed[i, 8].Trim(' ');
 
-            teffVal = int.Parse(preparsed[i, 9]);
+            teffVar = preparsed[i, 7].Split("|");
+            for (int s = 0; s < teffVar.Length; s++)
+            {
+                teffVar[s] = teffVar[s].Trim('"', ' ');
+                if (!dialogVars.ContainsKey(teffVar[s]) && teffVar[s] != "Null") dialogVars.Add(teffVar[s], 0);
+            }
 
-            string[] prep = preparsed[i, 10].Split("|");
+            teffOpr = preparsed[i, 8].Split("|");
+
+            prep = preparsed[i,9].Split("|");
+            teffVal = new int[prep.Length];
+            for (int s = 0; s < prep.Length; s++) teffVal[s] = int.Parse(prep[s]);
+
+            prep = preparsed[i, 10].Split("|");
             tposition = new int[prep.Length];
             for (int j = 0; j < prep.Length; j++) tposition[j] = int.Parse(prep[j]);
 
