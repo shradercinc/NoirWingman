@@ -8,6 +8,7 @@ public class ExpressionHolder : MonoBehaviour
     public static ExpressionHolder instance;
     //public SerializedDictionary<string,Dictionary<string,Sprite>> characterList;
     [SerializedDictionary("Character Name", "Expression Dictionary")] public SerializedDictionary<string, SerializedDictionary<string, Sprite>> characterList;
+    [SerializedDictionary("Character Name", "Sprite Size")] public SerializedDictionary<string, Vector3> characterSizing;
 
     private void Start()
     {

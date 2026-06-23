@@ -1541,6 +1541,14 @@ MonoBehaviour:
           Value: {fileID: 1786770352, guid: 866e365ddbafd3d4ea2866a4c428341e, type: 3}
         - Key: Angry
           Value: {fileID: 91269031, guid: 866e365ddbafd3d4ea2866a4c428341e, type: 3}
+  characterSizing:
+    _serializedList:
+    - Key: Detective Juels
+      Value: {x: 1, y: 1, z: 1}
+    - Key: Sam Diggums
+      Value: {x: 1, y: 1, z: 1}
+    - Key: Olivia Meadows
+      Value: {x: 1, y: 1, z: 1}
 --- !u!1 &596933350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,7 +2330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: adf41cd6bc60f384696618e8b58cf2ef, type: 3}
+  m_Sprite: {fileID: -1605494010, guid: 77e2a3dad5eb5544b84448b598b7aa49, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -58,7 +58,11 @@ public class DialogController : MonoBehaviour
 
     public virtual void EndConvo()
     {
+        //dialogue menu reset
+        ExpressionObject.rectTransform.localScale = new Vector3(Mathf.Abs(ExpressionObject.rectTransform.localScale.x), ExpressionObject.rectTransform.localScale.y, ExpressionObject.rectTransform.localScale.z);
         NoirOverlay.enabled = false;
+
+
         patronMenu.SetActive(true);
         if (!convoToPrint.read)
         {
@@ -90,7 +94,7 @@ public class DialogController : MonoBehaviour
                 if (convoToPrint.dialogueName == rootConversation.fullConversation[i].dialogueName)
                 {
                     convoToPrint.read = true;
-                    rootConversation.fullConversation[i] = convoToPrint;
+                    rootConversation.fullConversation[i] = convoToPrint; 
                 }
             }
         }
@@ -137,10 +141,30 @@ public class DialogController : MonoBehaviour
         dialogueText.text = newText;
 
 
+        bool sideChange = false;
+        Vector3 expressScale = ExpressionObject.rectTransform.localScale;
+
+        if (progress != 0)
+        {
+            if ((convoToPrint.position[progress] <= 1 && convoToPrint.position[progress - 1] >= 2) || (convoToPrint.position[progress] >= 2 && convoToPrint.position[progress - 1] <= 1)) sideChange = true;
+            else sideChange = false;
+
+        }
 
         //Places, orients and changes the sprites based on how the scene changes
         if (progress == 0)
         {
+            if (convoToPrint.position[progress] <= 1)
+            {
+                ExpressionObject.rectTransform.localScale = new Vector3(-expressScale.x, expressScale.y, expressScale.z);
+
+                print("Left Side, look right");
+            }
+            else
+            {
+                ExpressionObject.rectTransform.localScale = expressScale;
+                print("Right Side, look left");
+            } 
             //to be replaced with code that slides new speakers on from off screen
             //if the dialogue just started: Fast placement, fade off
             print("First Line");
@@ -167,8 +191,8 @@ public class DialogController : MonoBehaviour
         {
             //if nothing is the same, Slow placement, fade on
             ExpressionShade.transform.localPosition = standardPositions[convoToPrint.position[progress]];
-            if (convoToPrint.position[progress] <= 1 && ExpressionObject.rectTransform.localScale.x > 0) ExpressionObject.rectTransform.localScale = new Vector3(-1, 1, 1);
-            if (convoToPrint.position[progress] >= 2 && ExpressionObject.rectTransform.localScale.x < 0) ExpressionObject.rectTransform.localScale = new Vector3(1, 1, 1);
+            if (convoToPrint.position[progress] <= 1 && ExpressionObject.rectTransform.localScale.x > 0) ExpressionObject.rectTransform.localScale = new Vector3(1, 1, 1);
+            if (convoToPrint.position[progress] >= 2 && ExpressionObject.rectTransform.localScale.x < 0) ExpressionObject.rectTransform.localScale = new Vector3(-1, 1, 1);
             StartCoroutine(BlendExpression(true));
         }
 
@@ -180,8 +204,6 @@ public class DialogController : MonoBehaviour
     {
         //changes the position and orientation of speaker, copies this too the shade
         ExpressionObject.transform.localPosition = standardPositions[convoToPrint.position[progress]];
-        if (convoToPrint.position[progress] <= 1 && ExpressionObject.rectTransform.localScale.x > 0) ExpressionObject.rectTransform.localScale = new Vector3(-1, 1, 1);
-        if (convoToPrint.position[progress] >= 2 && ExpressionObject.rectTransform.localScale.x < 0) ExpressionObject.rectTransform.localScale = new Vector3(1, 1, 1);
         ExpressionShade.transform.localPosition = ExpressionObject.transform.localPosition;
         ExpressionShade.rectTransform.localScale = ExpressionObject.rectTransform.localScale;
     }
@@ -221,7 +243,9 @@ public class DialogController : MonoBehaviour
         ExpressionObject.sprite = newSprite;
         ExpressionObject.color = new Color(1f,1f,1f,1f);
         ExpressionShade.color = new Color(1f, 1f, 1f, 0f);
-        
+        //if (convoToPrint.position[progress] <= 1 && ExpressionObject.rectTransform.localScale.x > 0) ExpressionObject.rectTransform.localScale = new Vector3(-1, 1, 1);
+        //if (convoToPrint.position[progress] >= 2 && ExpressionObject.rectTransform.localScale.x < 0) ExpressionObject.rectTransform.localScale = new Vector3(1, 1, 1);
+
     }
 
     void Update()

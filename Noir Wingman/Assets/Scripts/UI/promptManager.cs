@@ -30,7 +30,7 @@ public class promptManager : MonoBehaviour
         {
             if (newConvo[i].conditionVar[0] != "Null")
             {
-                for (int j = 0; j < newConvo[i].conditionVar.Length; j++)
+                for (int j = 0; j < newConvo[i].conditionVar.Length - 1; j++)
                 {
                     switch (newConvo[i].conditionOpr[j])
                     {
