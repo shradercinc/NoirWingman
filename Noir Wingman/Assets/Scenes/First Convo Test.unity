@@ -1546,7 +1546,7 @@ MonoBehaviour:
     - Key: Detective Juels
       Value: {x: 1, y: 1, z: 1}
     - Key: Sam Diggums
-      Value: {x: 1, y: 1, z: 1}
+      Value: {x: 1.1, y: 0.8, z: 1}
     - Key: Olivia Meadows
       Value: {x: 1, y: 1, z: 1}
 --- !u!1 &596933350
@@ -2292,7 +2292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 82, y: 40}
+  m_AnchoredPosition: {x: -720, y: 40}
   m_SizeDelta: {x: 600, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727248495
@@ -2330,7 +2330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1605494010, guid: 77e2a3dad5eb5544b84448b598b7aa49, type: 3}
+  m_Sprite: {fileID: -1686077629, guid: f4a144092c9c5e946811c0208f804462, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4616,14 +4616,14 @@ RectTransform:
   m_GameObject: {fileID: 1382237007}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1428791115}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 82, y: 40}
+  m_AnchoredPosition: {x: 680, y: 40}
   m_SizeDelta: {x: 600, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382237010
@@ -4667,8 +4667,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 944754391, guid: 77e2a3dad5eb5544b84448b598b7aa49, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 1300971208, guid: 28f18a33187e8b944b3debfcc2686f81, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4907,7 +4907,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  ExpressionBlendDuration: 0.2
+  ExpressionBlendDuration: 0.25
   ExpressionObject: {fileID: 727248496}
   ExpressionShade: {fileID: 1382237012}
   dialogueSpeaker: {fileID: 1430117228}
@@ -4915,10 +4915,10 @@ MonoBehaviour:
   protagonistOverlay: {fileID: 365722684}
   NoirOverlay: {fileID: 1896244084}
   standardPositions:
-  - {x: -680, y: 40, z: 0}
-  - {x: -245, y: 40, z: 0}
-  - {x: 245, y: 40, z: 0}
-  - {x: 680, y: 40, z: 0}
+  - {x: -720, y: 40, z: 0}
+  - {x: -285, y: 40, z: 0}
+  - {x: 205, y: 40, z: 0}
+  - {x: 640, y: 40, z: 0}
   EndReportMenu: {fileID: 1361519689}
 --- !u!1 &1430117226
 GameObject:
@@ -4977,7 +4977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sample Conversation choice text
+  m_text: Sample Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -125,6 +125,8 @@ public class DialogController : MonoBehaviour
     
     protected void UpdateDialogue()
     {
+        dialogueSpeaker.text = convoToPrint.speaker[progress];
+        //checks whether filter needs to be displayed and then displays text
         string newText = convoToPrint.reaction[progress];
         if (newText.StartsWith('*'))
         {
@@ -140,112 +142,81 @@ public class DialogController : MonoBehaviour
         }
         dialogueText.text = newText;
 
-
-        bool sideChange = false;
-        Vector3 expressScale = ExpressionObject.rectTransform.localScale;
-
-        if (progress != 0)
-        {
-            if ((convoToPrint.position[progress] <= 1 && convoToPrint.position[progress - 1] >= 2) || (convoToPrint.position[progress] >= 2 && convoToPrint.position[progress - 1] <= 1)) sideChange = true;
-            else sideChange = false;
-
-        }
-
-        //Places, orients and changes the sprites based on how the scene changes
+        //places the character
         if (progress == 0)
         {
-            if (convoToPrint.position[progress] <= 1)
-            {
-                ExpressionObject.rectTransform.localScale = new Vector3(-expressScale.x, expressScale.y, expressScale.z);
-
-                print("Left Side, look right");
-            }
-            else
-            {
-                ExpressionObject.rectTransform.localScale = expressScale;
-                print("Right Side, look left");
-            } 
-            //to be replaced with code that slides new speakers on from off screen
-            //if the dialogue just started: Fast placement, fade off
-            print("First Line");
             fastPlacement();
-            SnapExpression();
-        }
-        else if (convoToPrint.position[progress] == convoToPrint.position[progress - 1])
-        {
-            print("Same Position");
-            //if the character's are in the same place Fast placement, fade off if speaker and expression are the same
-            fastPlacement();
-
-            if (convoToPrint.speaker[progress] == convoToPrint.speaker[progress - 1] && convoToPrint.expression[progress] == convoToPrint.expression[progress - 1]) SnapExpression();
-            else StartCoroutine(BlendExpression(false));
-        }
-        else if (convoToPrint.speaker[progress] == convoToPrint.speaker[progress - 1])
-        {
-            print("Same Speaker");
-            //if the speaker is the same: fast placement, blend 
-            fastPlacement();
-            StartCoroutine(BlendExpression(false));
         }
         else
         {
-            //if nothing is the same, Slow placement, fade on
-            ExpressionShade.transform.localPosition = standardPositions[convoToPrint.position[progress]];
-            if (convoToPrint.position[progress] <= 1 && ExpressionObject.rectTransform.localScale.x > 0) ExpressionObject.rectTransform.localScale = new Vector3(1, 1, 1);
-            if (convoToPrint.position[progress] >= 2 && ExpressionObject.rectTransform.localScale.x < 0) ExpressionObject.rectTransform.localScale = new Vector3(-1, 1, 1);
-            StartCoroutine(BlendExpression(true));
+            //If the speaker, position and expression are all the same, use fast placement (kinda pointless cause nothing changes but it's for clarity)
+            if (convoToPrint.position[progress] == convoToPrint.position[progress - 1] && convoToPrint.speaker[progress] == convoToPrint.speaker[progress - 1] && convoToPrint.expression[progress] == convoToPrint.expression[progress - 1])
+            {
+                fastPlacement();
+            }
+            else
+            {
+                StartCoroutine(BlendExpression());
+            }
         }
-
-
-        dialogueSpeaker.text = convoToPrint.speaker[progress];
     }
 
-    void fastPlacement()
+    void fastPlacement() //Immediately places, sizes and orients a character, copying the shade
     {
-        //changes the position and orientation of speaker, copies this too the shade
+        //changes the position of speaker
         ExpressionObject.transform.localPosition = standardPositions[convoToPrint.position[progress]];
-        ExpressionShade.transform.localPosition = ExpressionObject.transform.localPosition;
-        ExpressionShade.rectTransform.localScale = ExpressionObject.rectTransform.localScale;
-    }
+        
 
-    void SnapExpression()
-    {
+        //changes the size of the speaker 
+        ExpressionObject.transform.localScale = ExpressionHolder.instance.characterSizing[convoToPrint.speaker[progress]];
+
+        //changes the orientation based on position
+        if (convoToPrint.position[progress] >= 2) ExpressionObject.transform.localScale = new Vector3(ExpressionObject.transform.localScale.x * -1, ExpressionObject.transform.localScale.y, 1);
+
+        //changes the appearance
         ExpressionObject.sprite = ExpressionHolder.instance.ExpressionGrabber(convoToPrint.speaker[progress], convoToPrint.expression[progress]);
+
+        //copies to shade
+        ExpressionShade.transform.localPosition = ExpressionObject.transform.localPosition;
+        ExpressionShade.transform.localScale = ExpressionObject.transform.localScale;
+        ExpressionShade.sprite = ExpressionObject.sprite;
+
     }
 
-    IEnumerator BlendExpression(bool slowPlacement)
+    IEnumerator BlendExpression()
     {
         Sprite newSprite = ExpressionHolder.instance.ExpressionGrabber(convoToPrint.speaker[progress], convoToPrint.expression[progress]);
+        Vector3 newSize = ExpressionHolder.instance.characterSizing[convoToPrint.speaker[progress]];
+        if (convoToPrint.position[progress] >= 2) newSize = new Vector3(newSize.x * -1, newSize.y, 1);
+
+        //Expression Shade moves to the new location, take the new look then fades in as the old sprite fades out. Once the fade is complete, expression object jumps to expression shade, copies it, and reappears
+
+        //changing the appearnace of the shade
         ExpressionShade.sprite = newSprite;
+        ExpressionShade.rectTransform.localScale = newSize;
+        ExpressionShade.color = new Color(1f, 1f, 1f, 0f);
+
+        //placing shade
+        ExpressionShade.rectTransform.localPosition = standardPositions[convoToPrint.position[progress]];
+
         float blendTimer = 0;
         float currentRatio = 0;
         while (blendTimer <= ExpressionBlendDuration)
         {
-            
             blendTimer += Time.deltaTime;
             currentRatio = blendTimer / ExpressionBlendDuration;
-            //print("Ratio " + currentRatio);
-            //print("Eval " + ExpressionBlendCurve.Evaluate(currentRatio));
 
-            ExpressionShade.color = new Color(1f,1f,1f, ShadeBlendCurve.Evaluate(currentRatio));
+            //tweens the alpha of each sprite so that the shade is visible while the object is not
+            ExpressionShade.color = new Color(1f, 1f, 1f, ShadeBlendCurve.Evaluate(currentRatio));
             ExpressionObject.color = new Color(1f, 1f, 1f, ExpressionBlendCurve.Evaluate(currentRatio));
-            //print("Shade a " + ExpressionShade.color.a);
-            //print("obj a " + ExpressionObject.color.a);
             yield return null;
         }
 
-        if (slowPlacement)
-        {
-            ExpressionObject.transform.localPosition = ExpressionShade.transform.localPosition;
-            ExpressionObject.rectTransform.localScale = ExpressionShade.rectTransform.localScale;
-        }
-        
         ExpressionObject.sprite = newSprite;
-        ExpressionObject.color = new Color(1f,1f,1f,1f);
+        ExpressionObject.rectTransform.localScale = newSize;
+        ExpressionObject.rectTransform.localPosition = standardPositions[convoToPrint.position[progress]];
+        ExpressionObject.color = new Color(1f, 1f, 1f, 1f);
         ExpressionShade.color = new Color(1f, 1f, 1f, 0f);
-        //if (convoToPrint.position[progress] <= 1 && ExpressionObject.rectTransform.localScale.x > 0) ExpressionObject.rectTransform.localScale = new Vector3(-1, 1, 1);
-        //if (convoToPrint.position[progress] >= 2 && ExpressionObject.rectTransform.localScale.x < 0) ExpressionObject.rectTransform.localScale = new Vector3(1, 1, 1);
-
     }
 
     void Update()
