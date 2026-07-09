@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 using System.Reflection.Emit;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class EnableSelection : ButtonMaster
 {
@@ -16,10 +17,11 @@ public class EnableSelection : ButtonMaster
     bool voting = false;
     [SerializeField] public List<selectPerson> POIList = new List<selectPerson>();
 
-    [SerializeField] GameObject votingOverlay;
     [SerializeField] TMP_Text TitleCommandText;
     [SerializeField] TMP_Text voteTabText;
     public static EnableSelection instance;
+
+    [SerializeField] PostProcessVolume NoirOverlay;
 
 
     public override void Start()
@@ -61,7 +63,7 @@ public class EnableSelection : ButtonMaster
     {
         voteTabText.text = "Disable Voting";
         TitleCommandText.text = "Which one will it be detective?";
-        votingOverlay.SetActive(true);
+        NoirOverlay.enabled = true;
         voting = true;
         foreach (selectPerson i in POIList)
         {
@@ -73,7 +75,7 @@ public class EnableSelection : ButtonMaster
     {
         voteTabText.text = "Select Date";
         TitleCommandText.text = "Chat with a person of interest";
-        votingOverlay.SetActive(false);
+        NoirOverlay.enabled = false;
         voting = false;
         foreach (selectPerson i in POIList)
         {
