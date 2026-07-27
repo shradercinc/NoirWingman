@@ -134,11 +134,13 @@ public class DialogController : MonoBehaviour
             NoirOverlay.enabled = true;
             //protagonistOverlay.SetActive(true);
             SpeakerObj.SetActive(false);
+            dialogueText.fontStyle = FontStyles.Italic;
         } else
         {
             NoirOverlay.enabled = false;
             //protagonistOverlay.SetActive(false);
             SpeakerObj.SetActive(true);
+            dialogueText.fontStyle = FontStyles.Normal;
         }
         dialogueText.text = newText;
 

@@ -161,6 +161,7 @@ public class selectPerson : ButtonMaster
 
             prep = preparsed[i, 10].Split("|");
             tposition = new int[prep.Length];
+            print(tname + ": " + prep.Length + "/" + treaction.Length);
             for (int j = 0; j < prep.Length; j++) tposition[j] = int.Parse(prep[j]);
 
             tspeaker = preparsed[i, 11].Split("|");
