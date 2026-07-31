@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine.UI;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine.Rendering.PostProcessing;
+using System;
 
 public class DialogController : MonoBehaviour
 {
@@ -58,6 +59,7 @@ public class DialogController : MonoBehaviour
 
     public virtual void EndConvo()
     {
+        print("Ending convo");
         //dialogue menu reset
         ExpressionObject.rectTransform.localScale = new Vector3(Mathf.Abs(ExpressionObject.rectTransform.localScale.x), ExpressionObject.rectTransform.localScale.y, ExpressionObject.rectTransform.localScale.z);
         NoirOverlay.enabled = false;
@@ -70,24 +72,29 @@ public class DialogController : MonoBehaviour
             {
                 for (int i = 0; i < convoToPrint.effectVar.Length; i++)
                 {
+                    print("pre adjust - " + convoToPrint.effectVar[i] + ":" + rootConversation.dialogVars[convoToPrint.effectVar[i]]);
+                    print ("adding " + convoToPrint.effectVal[i]);
                     switch (convoToPrint.effectOpr[i])
                     {
-                        case "add":
+                        case "Add":
                             rootConversation.dialogVars[convoToPrint.effectVar[i]] += convoToPrint.effectVal[i];
                             break;
-                        case "subtract":
+                        case "Subtract":
                             rootConversation.dialogVars[convoToPrint.effectVar[i]] -= convoToPrint.effectVal[i];
                             break;
-                        case "multiply":
+                        case "Multiply":
                             rootConversation.dialogVars[convoToPrint.effectVar[i]] *= convoToPrint.effectVal[i];
                             break;
-                        case "divide":
+                        case "Divide":
                             rootConversation.dialogVars[convoToPrint.effectVar[i]] /= convoToPrint.effectVal[i];
                             break;
+                        default:
+                            throw new ArgumentException("Incorrect operator use");
                     }
+                    print("post adjust + " + convoToPrint.effectVar[i] + ":" + rootConversation.dialogVars[convoToPrint.effectVar[i]]);
                 }
             }
-            rootConversation.patience -= convoToPrint.patienceReq;
+            rootConversation.patience -= convoToPrint.patienceMod;
 
             for (int i = 0; i < rootConversation.fullConversation.Count; i++)
             {
@@ -101,9 +108,11 @@ public class DialogController : MonoBehaviour
         switch (dialogueCondition)
         {
             case "Intro":
+                print("Intro text exit");
                 dialogueMenu.SetActive(false);
                 break;
             case "Outro":
+                print("Outro text exit");
                 EndReportMenu.SetActive(true);
                 ReferenceKeeper endRef = EndReportMenu.GetComponent<ReferenceKeeper>();
                 endRef.nameObj.text = "You picked " + rootConversation.gameObject.name + " For " + endRef.levelFriend;
@@ -112,14 +121,18 @@ public class DialogController : MonoBehaviour
                 patronMenu.SetActive(false);
                 break;
             case "POIIntro":
+                print("this text shouldn't happen");
                 break;
             case "":
+                print("default text exit");
                 promptMenu.SetActive(true);
                 promptManager.instance.LoadNewConvo(rootConversation.fullConversation);
                 promptManager.instance.patienceHolder.text = rootConversation.patience.ToString();
                 patronMenu.SetActive(false);
                 dialogueMenu.SetActive(false);
                 break;
+            default:
+                throw new ArgumentException("non text exit used");
         }
     }
     

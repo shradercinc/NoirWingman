@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -26,52 +27,69 @@ public class promptManager : MonoBehaviour
     public void LoadNewConvo(List<DialogueContainer> newConvo)
     {
         print("Loading new Convo...");
-        for (int i = 0; i < newConvo.Count; i++) 
+        for (int i = 0; i < newConvo.Count - 1; i++) 
         {
             if (newConvo[i].conditionVar[0] != "Null")
             {
-                for (int j = 0; j < newConvo[i].conditionVar.Length - 1; j++)
+                print(newConvo[i].dialogueName + " has " + newConvo[i].conditionVar.Length + " conditionals");
+                for (int j = 0; j < newConvo[i].conditionVar.Length; j++)
                 {
+
                     switch (newConvo[i].conditionOpr[j])
                     {
-                        case "eq":
-                            if (currentPerson.dialogVars[newConvo[i].conditionVar[i]] == newConvo[i].conditionVal[i])
+                        case "Eq":
+                            if (currentPerson.dialogVars[newConvo[i].conditionVar[j]] == newConvo[i].conditionVal[j])
+                            {                        
+                                CreateChoice(newConvo[i]);
+                                print("equal");
+                            }
+                            print("not equal");
+                            break;
+                        case "Gt":
+                            if (currentPerson.dialogVars[newConvo[i].conditionVar[j]] > newConvo[i].conditionVal[j])
                             {
                                 CreateChoice(newConvo[i]);
+                                print("greater than");
                             }
+                            print("not greater than");
                             break;
-                        case "gt":
-                            if (currentPerson.dialogVars[newConvo[i].conditionVar[i]] > newConvo[i].conditionVal[i])
+                        case "Egt":
+                            if (currentPerson.dialogVars[newConvo[i].conditionVar[j]] >= newConvo[i].conditionVal[j])
                             {
                                 CreateChoice(newConvo[i]);
+                                print("equal/greater than");
                             }
+                            print("not equal greater than");
                             break;
-                        case "egt":
-                            if (currentPerson.dialogVars[newConvo[i].conditionVar[i]] >= newConvo[i].conditionVal[i])
+                        case "Lt":
+                            if (currentPerson.dialogVars[newConvo[i].conditionVar[j]] < newConvo[i].conditionVal[j])
+                            {                               
+                                CreateChoice(newConvo[i]);
+                                print("Less than");
+                            }
+                            print("not less than");
+                            break;
+                        case "Elt":
+                            if (currentPerson.dialogVars[newConvo[i].conditionVar[j]] < newConvo[i].conditionVal[j])
                             {
                                 CreateChoice(newConvo[i]);
+                                print("equal/less than");
                             }
+                            print("not equal less than");
                             break;
-                        case "lt":
-                            if (currentPerson.dialogVars[newConvo[i].conditionVar[i]] < newConvo[i].conditionVal[i])
-                            {
-                                CreateChoice(newConvo[i]);
-                            }
-                            break;
-                        case "elt":
-                            if (currentPerson.dialogVars[newConvo[i].conditionVar[i]] < newConvo[i].conditionVal[i])
-                            {
-                                CreateChoice(newConvo[i]);
-                            }
-                            break;
+                        default:
+                            throw new ArgumentException("syntax error " + newConvo[i].conditionOpr + " is non-functional operator");
                     }
                 }
             }
             else
             {
+                print(newConvo[i].dialogueName + " has no conditionals");
                 CreateChoice(newConvo[i]);
                 
             }
+
+            print("-------------------------------");
         }
         print("Conversation Loaded!");
     }
