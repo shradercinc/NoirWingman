@@ -1135,6 +1135,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 63461fa702ccaad47a25080b91f759a6, type: 3}
     - target: {fileID: 5996399423412164563, guid: 359f3e10c8a0e22408392dcc3da5fd26, type: 3}
+      propertyPath: patronMenu
+      value: 
+      objectReference: {fileID: 723553320}
+    - target: {fileID: 5996399423412164563, guid: 359f3e10c8a0e22408392dcc3da5fd26, type: 3}
+      propertyPath: promptMenu
+      value: 
+      objectReference: {fileID: 2087195548}
+    - target: {fileID: 5996399423412164563, guid: 359f3e10c8a0e22408392dcc3da5fd26, type: 3}
+      propertyPath: MyConversationTSV
+      value: 
+      objectReference: {fileID: 4900000, guid: 3fefad7924a1a3c4c84f5e5a29cff5f9, type: 3}
+    - target: {fileID: 5996399423412164563, guid: 359f3e10c8a0e22408392dcc3da5fd26, type: 3}
       propertyPath: MyIntroConversationTSV
       value: 
       objectReference: {fileID: 4900000, guid: 7503d42e0aa1fca4bba08fb2c25f785c, type: 3}
@@ -1571,6 +1583,8 @@ MonoBehaviour:
     _serializedList:
     - Key: Detective Juels
       Value: {x: 1, y: 1, z: 1}
+    - Key: Eoin Richardson
+      Value: {x: 1, y: 0.75, z: 1}
     - Key: Willy Goldbern
       Value: {x: 1.05, y: 1, z: 1}
     - Key: Sam Diggums
@@ -6485,7 +6499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -34}
   m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2032235286
@@ -6510,8 +6524,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select Suitor
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee9f27fdb3df7ac418870e4a61841c70, type: 2}
+  m_sharedMaterial: {fileID: -1963213264788057560, guid: ee9f27fdb3df7ac418870e4a61841c70, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6535,8 +6549,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68
-  m_fontSizeBase: 68
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7250,7 +7264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2127591693
 RectTransform:
   m_ObjectHideFlags: 0

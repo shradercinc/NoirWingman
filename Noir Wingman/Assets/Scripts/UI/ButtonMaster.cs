@@ -39,7 +39,6 @@ public class ButtonMaster : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     // Update is called once per frame
     public virtual void Update()
     {
-
         if (mouseOver && Input.GetKeyDown(KeyCode.Mouse0) && !GlobalState.instance.dossierUp)
         {
             PressedEffect();
