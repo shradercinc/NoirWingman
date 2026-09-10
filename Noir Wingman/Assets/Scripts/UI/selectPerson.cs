@@ -162,7 +162,8 @@ public class selectPerson : ButtonMaster
             prep = preparsed[i, 10].Split("|");
             tposition = new int[prep.Length];
             print(tname + ": " + prep.Length + "/" + treaction.Length);
-            for (int j = 0; j < prep.Length; j++) tposition[j] = int.Parse(prep[j]);
+            for (int j = 0; j < prep.Length; j++)tposition[j] = int.Parse(prep[j]);
+
 
             tspeaker = preparsed[i, 11].Split("|");
             for(int s = 0; s < tspeaker.Length; s++) tspeaker[s] = tspeaker[s].Trim(' ');
@@ -171,6 +172,13 @@ public class selectPerson : ButtonMaster
             
             tpatienceMod = int.Parse(preparsed[i, 13]);
 
+
+            //ERROR CODES
+            for (int j = 0; j < tposition.Length; j++) if (tposition[j] < 0 || tposition[j] > 3) Debug.LogError("ERROR: Position value index overflow in " + tname);
+
+            if (texpression.Length != treaction.Length) Debug.LogError("ERROR: Expression index length discrepincy in " + tname + " | Reaction:" + treaction.Length + " - Expression:" + texpression.Length);
+            if (tposition.Length != treaction.Length) Debug.LogError("ERROR: Position index length discrepincy in " + tname + " | Reaction:" + treaction.Length + " - Position:" + tposition.Length);
+            if (tspeaker.Length != treaction.Length) Debug.LogError("ERROR: Speaker index length discrepincy in " + tname + " | Reaction:" + treaction.Length + " - Speaker:" + tspeaker.Length);
 
 
             DialogueContainer singleLine = new DialogueContainer();
