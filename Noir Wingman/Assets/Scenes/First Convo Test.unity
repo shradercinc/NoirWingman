@@ -1164,7 +1164,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 7503d42e0aa1fca4bba08fb2c25f785c, type: 3}
     - target: {fileID: 6704519722710666734, guid: 359f3e10c8a0e22408392dcc3da5fd26, type: 3}
       propertyPath: m_Name
-      value: Character Option
+      value: Eoin Holder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5559,7 +5559,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 75b47db36e3a9764ea3cf1f510c368b3, type: 3}
     - target: {fileID: 6704519722710666734, guid: 359f3e10c8a0e22408392dcc3da5fd26, type: 3}
       propertyPath: m_Name
-      value: Character Option
+      value: Daira Holder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6665,7 +6665,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: bdcddca5f50aeb641918386a550faf27, type: 3}
     - target: {fileID: 6704519722710666734, guid: 359f3e10c8a0e22408392dcc3da5fd26, type: 3}
       propertyPath: m_Name
-      value: Character Option
+      value: Willie Holder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7735,9 +7735,17 @@ PrefabInstance:
       propertyPath: TempEndString
       value: Maybe she'll get a good scoop out of it
       objectReference: {fileID: 0}
+    - target: {fileID: 5996399423412164563, guid: 359f3e10c8a0e22408392dcc3da5fd26, type: 3}
+      propertyPath: MyConversationTSV
+      value: 
+      objectReference: {fileID: 4900000, guid: b80ae560d728a784fa857e4b23708c65, type: 3}
+    - target: {fileID: 5996399423412164563, guid: 359f3e10c8a0e22408392dcc3da5fd26, type: 3}
+      propertyPath: MyIntroConversationTSV
+      value: 
+      objectReference: {fileID: 4900000, guid: cad8693fc3ce60b448d8a67a00d15dfe, type: 3}
     - target: {fileID: 6704519722710666734, guid: 359f3e10c8a0e22408392dcc3da5fd26, type: 3}
       propertyPath: m_Name
-      value: Character Option
+      value: Olivia Holder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

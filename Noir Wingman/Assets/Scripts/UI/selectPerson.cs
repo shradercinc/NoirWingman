@@ -90,6 +90,8 @@ public class selectPerson : ButtonMaster
     {
         fullConversation = convertTSVtoDialogue(MyConversationTSV);
         if (MyEndConversationsTSV != null) endConversation = convertTSVtoDialogue(MyEndConversationsTSV);
+        //print(convertTSVtoDialogue(MyIntroConversationTSV));
+        print(name);
         if (MyIntroConversationTSV != null) introConversation = convertTSVtoDialogue(MyIntroConversationTSV);
 
         instantiated = true;
@@ -116,6 +118,7 @@ public class selectPerson : ButtonMaster
         int tpatienceReq;
         int tpatienceMod;
 
+        //print(preparsed.GetLength(0));
         for (int i = 0; i < preparsed.GetLength(0) - 2; i++)
         {
             string[] prep;
@@ -125,7 +128,7 @@ public class selectPerson : ButtonMaster
             tprompt = preparsed[i, 1].Trim(' ');
 
             treaction = preparsed[i, 2].Split("|");
-            for (int s = 0; s < treaction.Length; s++) treaction[s] = treaction[s].Trim('"', ' '); 
+            for (int s = 0; s < treaction.Length; s++) treaction[s] = treaction[s].Trim('"', ' ');
 
             texpression = preparsed[i, 3].Split("|");
             for (int s = 0; s < texpression.Length; s++) texpression[s] = texpression[s].Trim('"', ' '); 

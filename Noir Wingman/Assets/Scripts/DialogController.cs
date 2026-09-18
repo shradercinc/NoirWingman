@@ -236,7 +236,7 @@ public class DialogController : MonoBehaviour
 
     void Update()
     {
-        if (inUse && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))) 
+        if (inUse && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))) 
         {
             progress++;
             if (progress < convoToPrint.reaction.Length)

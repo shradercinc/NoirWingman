@@ -26,7 +26,7 @@ public class promptPrefabController : ButtonMaster
         }
         if (conversationRoot.patience < myContainer.patienceMod)
         {
-            hasReadOverlay.SetActive(true);
+            //hasReadOverlay.SetActive(true);
             boxOutline.effectColor = Color.red;
         }
 
@@ -47,7 +47,7 @@ public class promptPrefabController : ButtonMaster
 
     public override void PressedEffect()
     {
-        if (conversationRoot.patience > myContainer.patienceReq)
+        if (conversationRoot.patience >= myContainer.patienceReq || myContainer.read)
         {
             promptManager.instance.dialogueMenu.SetActive(true);
             DialogController.instance.rootConversation = conversationRoot;
